@@ -1,4 +1,5 @@
 # MQTT Broker
+
 ## Docker Compose
 ```yaml
 version: '3.5'
@@ -35,15 +36,9 @@ listener 1884
 protocol websockets
 ```
 
-To add authentication modify the following lines
-```txt
-allow_anonymous false
-password_file /mosquitto/config/users
-```
-
 ## Add User Authentication
 
-Create a text file like this 
+To add authentication first create a text file like this 
 ```txt
 user1:passw1
 user2:passw2
@@ -55,3 +50,8 @@ Then encrypt the passwords in the file run
 docker run -v $PWD:/workspace eclipse-mosquitto mosquitto_passwd -U /workspace/configs/users
 ```
 
+The modify the condiguration file like below
+```txt
+allow_anonymous false
+password_file /mosquitto/config/users
+```
