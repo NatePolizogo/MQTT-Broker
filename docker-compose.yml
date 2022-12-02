@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+    emos:
+        container_name: emos
+        image: eclipse-mosquitto
+        restart: always
+        logging:
+            options:
+                max-size: 10m
+        ports:
+            - 1883:1883
+            - 1884:1884
+        volumes:
+            - ./configs:/mosquitto/config
